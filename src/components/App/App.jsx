@@ -1,9 +1,10 @@
 import {useEffect, useState} from 'react'
 
-import Header from '../Header/Header'
-import Navbar from '../Navbar/Navbar'
+import Card from '../Card/Card';
+import Header from '../Header/Header';
+import Navbar from '../Navbar/Navbar';
 
-import './App.css'
+import style from './App.module.css';
 
 function App() {
 	const [allCountries, setAllCountries] = useState(null)
@@ -33,13 +34,12 @@ function App() {
 				allCountries={allCountries}
 				setFiltered={setFiltered}
 			/>
-			{
-				//TODO: display a <Card> for each country, with allCountries.map() or some such
-				filtered.length &&
-					filtered.map(country => (
-						<p key={country.car.cca2}>{country.name.common}</p>
-					))
-			}
+			<main className={style.container}>
+				{filtered.length &&
+					filtered.map(country => {
+					  return <Card key={country.name.common} props={country} />
+				})}
+			</main>
 		</div>
 	)
 }
