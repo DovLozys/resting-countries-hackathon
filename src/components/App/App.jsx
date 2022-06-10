@@ -7,12 +7,14 @@ import './App.css'
 
 function App() {
 	const [allCountries, setAllCountries] = useState(null)
+	const [filtered, setFiltered] = useState([])
 
 	useEffect(() => {
 		async function fetchData() {
 			const res = await fetch('https://restcountries.com/v3.1/all')
 			const data = await res.json()
 			setAllCountries(data)
+			setFiltered(data)
 		}
 		fetchData()
 	}, [])
@@ -20,14 +22,23 @@ function App() {
 	if (!allCountries) {
 		return <div>Loading...</div>
 	}
-
+	console.log('allCountries: ', allCountries)
+	console.log('filtered app: ', filtered)
 	return (
 		<div>
 			<Header />
-			<Navbar />
+			<Navbar
+				filtered={filtered}
+				setAllCountries={setAllCountries}
+				allCountries={allCountries}
+				setFiltered={setFiltered}
+			/>
 			{
 				//TODO: display a <Card> for each country, with allCountries.map() or some such
-				allCountries[0].name.common
+				filtered.length &&
+					filtered.map(country => (
+						<p key={country.car.cca2}>{country.name.common}</p>
+					))
 			}
 		</div>
 	)
