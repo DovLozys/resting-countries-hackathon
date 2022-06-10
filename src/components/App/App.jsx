@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Card from '../Card/Card';
 import Header from '../Header/Header'
 
-import './App.css'
+import style from './App.module.css'
 
 function App() {
 	const [allCountries, setAllCountries] = useState(null);
@@ -24,10 +24,12 @@ function App() {
 	return (
 		<div>
 			<Header />
+			<main className={style.container}>
 			{allCountries.map((country) => {
 				return <Card key={country.name.common} props={country}/>
 			})
 			}
+			</main>
 		</div>
 	)
 }
