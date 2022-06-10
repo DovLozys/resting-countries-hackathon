@@ -24,7 +24,10 @@ function App() {
 		<div>
 			Hello World!
 			<Header />
-			{allCountries[0].name.common}
+			{
+				//TODO: display a <Card> for each country, with allCountries.map() or some such
+				allCountries[0].name.common
+			}
 		</div>
 	)
 }
