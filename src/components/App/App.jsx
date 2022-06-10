@@ -1,11 +1,13 @@
-import './App.css';
+import Header from '../Header/Header'
+import './App.css'
 
 function App() {
-  return (
-    <div>
-      Hello World!
-    </div>
-  );
+	return (
+		<div>
+			Hello World!
+			<Header />
+		</div>
+	)
 }
 
-export default App;
+export default App
