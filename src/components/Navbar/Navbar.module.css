@@ -1,0 +1,57 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 1.5rem;
+	align-items: center;
+	height: 4rem;
+	background-color: inherit;
+	margin: 2rem 0;
+}
+.searchContainer {
+	background-color: #fff;
+	width: 20rem;
+	height: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	box-shadow: 0 2px 7px 2px #a2a2a2;
+	border-radius: 0.3rem;
+}
+.input {
+	flex: 1;
+	height: 100%;
+	border: none;
+	outline: none;
+	padding-left: 0.5rem;
+	font-size: 1.1rem;
+	border-radius: inherit;
+}
+.icon {
+	color: #a2a2a2;
+	padding-right: 0.5rem;
+}
+.selectContainer {
+	background-color: #fff;
+	width: 12rem;
+	height: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	box-shadow: 0 2px 7px 2px #a2a2a2;
+	border-radius: 0.3rem;
+}
+.select {
+	flex: 1;
+	height: 100%;
+	border: none;
+	outline: none;
+	padding-left: 0.5rem;
+	font-size: 1.1rem;
+	border-radius: inherit;
+	cursor: pointer;
+}
+.option {
+	cursor: pointer;
+}
