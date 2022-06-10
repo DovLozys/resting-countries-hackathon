@@ -1,6 +1,7 @@
-import {faMoon, faSun} from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import styles from './Header.module.css'
+import {faMoon, faSun} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import styles from './Header.module.css';
+
 function Header() {
 	return (
 		<header className={styles.header}>
@@ -11,7 +12,7 @@ function Header() {
 				<p>Dark mode</p>
 			</div>
 		</header>
-	)
+	);
 }
 
-export default Header
+export default Header;
