@@ -1,38 +1,34 @@
-import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import styles from './Navbar.module.css'
-function Navbar({allCountries, setFiltered, filtered}) {
-	const options = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
-	// const [nameSearch, setNameSearch] = useState('')
-	// const [regionSearch, setRegionSearch] = useState('')
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import styles from './Navbar.module.css';
 
-	function filterNameSearch(item) {
-		// setNameSearch(item)
-		if (item !== '') {
+function Navbar({ allCountries, setFiltered }) {
+	const options = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+
+	// filter countries by input box text
+	function filterNameSearch(inputText) {
+		if (inputText !== '') {
 			const filteredCountries = allCountries.filter(country =>
-				country.name.common.toLowerCase().includes(item.toLowerCase())
-			)
-			setFiltered(filteredCountries)
+				country.name.common.toLowerCase().includes(inputText.toLowerCase())
+			);
+			setFiltered(filteredCountries);
 		} else {
-			setFiltered(allCountries)
-		}
-	}
-	function filterRegionSearch(item) {
-		// setRegionSearch(item)
-		if (item !== '') {
-			const filteredCountries = allCountries.filter(country =>
-				country.region.toLowerCase().includes(item.toLowerCase())
-			)
-			setFiltered(filteredCountries)
-		} else {
-			setFiltered(allCountries)
+			setFiltered(allCountries);
 		}
 	}
 
-	// console.log('search: ', search)
-	console.log('filtered: ', filtered)
-	// console.log('regionSearch: ', regionSearch)
-	// console.log('nameSearch: ', nameSearch)
+	// filter countries by option selected in dropdown
+	function filterRegionSearch(dropdownOption) {
+		if (dropdownOption !== '') {
+			const filteredCountries = allCountries.filter(country =>
+				country.region.toLowerCase().includes(dropdownOption.toLowerCase())
+			);
+			setFiltered(filteredCountries);
+		} else {
+			setFiltered(allCountries);
+		}
+	}
+
 	return (
 		<nav className={styles.navbar}>
 			<div className={styles.searchContainer}>
@@ -63,7 +59,7 @@ function Navbar({allCountries, setFiltered, filtered}) {
 				</select>
 			</div>
 		</nav>
-	)
+	);
 }
 
-export default Navbar
+export default Navbar;
