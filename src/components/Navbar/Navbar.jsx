@@ -6,8 +6,16 @@ function Navbar() {
 	return (
 		<nav className={styles.navbar}>
 			<div className={styles.searchContainer}>
-				<input type='text' placeholder='Search country...' />
-				<FontAwesomeIcon icon={faMagnifyingGlass} />
+				<input
+					className={styles.input}
+					type='text'
+					placeholder='Search country...'
+				/>
+				<FontAwesomeIcon
+					className={styles.icon}
+					icon={faMagnifyingGlass}
+					style={{fontSize: '1.3rem'}}
+				/>
 			</div>
 			<div className={styles.selectContainer}>
 				<select>
