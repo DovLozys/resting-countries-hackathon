@@ -1,19 +1,12 @@
 import styles from './Card.module.css'
 
-function Card(props) {
+function Card({ props }) {
 	return (
-		// what we will want displayed:
-		// flag image, png format
-		// capital name
-		// region name
-		// population
-
-		//TODO: fix the props.id
-		<article className={styles.card} key={props.name.common}>
+		<article className={styles.card}>
 			<img src={props.flags.png} alt={props.flag} />
 			<h2>{props.name.common}</h2>
 			<p>Region: {props.region}</p>
-			<p>Capital: {props.capital[0]}</p>
+			<p>Capital: {props.capital ? props.capital[0] : 'N/A'}</p>
 			<p>Population: {props.population}</p>
 		</article>
 	);

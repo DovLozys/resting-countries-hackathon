@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import Card from '../Card/Card';
 import Header from '../Header/Header'
 
 import './App.css'
@@ -23,9 +24,9 @@ function App() {
 	return (
 		<div>
 			<Header />
-			{
-				//TODO: display a <Card> for each country, with allCountries.map() or some such
-				allCountries[0].name.common
+			{allCountries.map((country) => {
+				return <Card key={country.name.common} props={country}/>
+			})
 			}
 		</div>
 	)
