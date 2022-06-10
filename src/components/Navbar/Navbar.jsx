@@ -1,16 +1,27 @@
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {useState} from 'react'
 import styles from './Navbar.module.css'
 function Navbar({allCountries, setFiltered, filtered}) {
-	const options = ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
-	const [search, setSearch] = useState('')
+	const options = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
+	// const [nameSearch, setNameSearch] = useState('')
+	// const [regionSearch, setRegionSearch] = useState('')
 
-	function filterSearch(item) {
-		setSearch(item)
-		if (search !== '') {
+	function filterNameSearch(item) {
+		// setNameSearch(item)
+		if (item !== '') {
 			const filteredCountries = allCountries.filter(country =>
-				country.name.common.toLowerCase().includes(search.toLowerCase())
+				country.name.common.toLowerCase().includes(item.toLowerCase())
+			)
+			setFiltered(filteredCountries)
+		} else {
+			setFiltered(allCountries)
+		}
+	}
+	function filterRegionSearch(item) {
+		// setRegionSearch(item)
+		if (item !== '') {
+			const filteredCountries = allCountries.filter(country =>
+				country.region.toLowerCase().includes(item.toLowerCase())
 			)
 			setFiltered(filteredCountries)
 		} else {
@@ -18,17 +29,18 @@ function Navbar({allCountries, setFiltered, filtered}) {
 		}
 	}
 
-	console.log('search: ', search)
+	// console.log('search: ', search)
 	console.log('filtered: ', filtered)
+	// console.log('regionSearch: ', regionSearch)
+	// console.log('nameSearch: ', nameSearch)
 	return (
 		<nav className={styles.navbar}>
 			<div className={styles.searchContainer}>
 				<input
 					className={styles.input}
 					type='text'
-					value={search}
 					placeholder='Search country...'
-					onChange={e => filterSearch(e.target.value)}
+					onChange={e => filterNameSearch(e.target.value)}
 				/>
 				<FontAwesomeIcon
 					className={styles.icon}
@@ -37,7 +49,9 @@ function Navbar({allCountries, setFiltered, filtered}) {
 				/>
 			</div>
 			<div className={styles.selectContainer}>
-				<select className={styles.select}>
+				<select
+					className={styles.select}
+					onChange={e => filterRegionSearch(e.target.value)}>
 					<option className={styles.option} value=''>
 						Filter by Region
 					</option>
