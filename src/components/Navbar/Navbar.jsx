@@ -18,10 +18,12 @@ function Navbar() {
 				/>
 			</div>
 			<div className={styles.selectContainer}>
-				<select>
-					<option value=''>Filter by Region</option>
+				<select className={styles.select}>
+					<option className={styles.option} value=''>
+						Filter by Region
+					</option>
 					{options.map(item => (
-						<option key={item} value={item}>
+						<option className={styles.option} key={item} value={item}>
 							{item}
 						</option>
 					))}
